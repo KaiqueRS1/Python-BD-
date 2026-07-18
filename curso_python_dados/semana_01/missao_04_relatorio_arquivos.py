@@ -5,9 +5,17 @@ total_bloqueados = 0
 continuar = "s"
 
 while continuar == "s":
-    quantidade_registros = int(
-        input("Digite a quantidade de registros: ")
-    )
+    while True:
+        try:
+            quantidade_registros = int(
+                input("Digite a quantidade de registros: ")
+            )
+            if quantidade_registros < 0:
+                print(f"A quantidade ({quantidade_registros}) não pode ser negativa.")
+            else:
+                break
+        except ValueError:
+            print("Entrada inválida. Digite apenas um número inteiro.")
 
     resposta_corrompido = input(
         "O arquivo está corrompido? s/n: "
